@@ -1,0 +1,14 @@
+<!-- waitlist/templates/waitlist/join_waitlist.html -->
+
+<head>
+    <title>Join Waitlist</title>
+</head>
+<body>
+    <h1>Join the Waitlist</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Join</button>
+    </form>
+</body>
+

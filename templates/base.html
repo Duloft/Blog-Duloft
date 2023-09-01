@@ -1,0 +1,96 @@
+{% load static %}
+{% load fontawesome_5 %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  {% fontawesome_5_static %} 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DuLoft | {% block title %}{% endblock %}</title> </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="advanced custom search, agency, agent, business, clean, corporate, directory, google maps, homes, idx agent, listing properties, membership packages, property, real broker, real estate, real estate agent, real estate agency, realtor">
+    <meta name="description" content="DuLoft - Bringing Comfort Close">
+    <meta name="robots" content="all,follow">
+    <!-- CSS only -->
+
+    <!-- Price Slider Stylesheets -->
+    <link rel="stylesheet" href="{% static '/css/nouislider.css' %}">
+    <!-- Google fonts - Playfair Display-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700">
+    <!-- swiper-->
+    <link rel="stylesheet" href="{% static '/css/swiper.min.css' %}">
+    <!-- Magnigic Popup-->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static '/css/default.css' %}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+      <link rel="stylesheet" href="{% static '/css/custom.css' %}">
+    {% comment %} <script src="{% static '/js/main.js' %}"> </script> {% endcomment %}
+
+    <!-- Favicon -->
+  <link href="{% static 'images/favicon-duloft.png' %}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
+  <link href="{% static 'images/favicon-duloft.png' %}" sizes="128x128" rel="shortcut icon" />
+
+
+  </head>
+  <body style="padding-top: 1px;">
+    <input type="hidden" id="csrf" value="{{csrf_token}}">
+    <header class="header">
+     
+      {% include 'main_navbar.html' %}
+      <!-- /Navbar -->
+    </header>
+   
+
+    {% block start %}
+
+
+    {% endblock %}
+
+
+
+
+  <footer>
+    <div class="py-4 font-weight-light bg-primary">
+      <div class="container container-fluid">
+        <div class="row">
+          <div class="col-md-5">
+            <h4 class="text-sm" >About Site</h4>
+            <p style='margin-left:7px'>We’re reimagining how you rent and buy, sell. It’s now easier to get into a place you love. So let’s do this, together.</p>
+          </div>
+          <div class="col-md-5">
+            <h4 class="text-sm" >Contact Us</h4>
+            <ul style='list-style: none;'>
+              <li><a href="">info@duloft.com</a></li>
+							<li><a href="">Agbani Road, Enugu</a></li>
+							<li><a href="">400001, Nigeria.</a></li>
+							<li><a href="">+234 704-328-5007</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h4 class="text-sm" >Follow us</h4>
+            <ul>
+              <li class="list-inline-item" ><a href="https://web.facebook.com/profile.php?id=100089719121712">{% fa5_icon 'facebook' 'fab' color='Black' size='fa-lg' %}</a></li>
+            </ul>
+          </div>
+      </div>
+        <div class="row align-items-center">
+          <div class="col-md-12 text-center">
+            <h4 class="text-sm mb-md-0 text-center">&copy; 2023, DuLoft.  Bringing Comfort Close...</h4>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </footer>
+   
+    
+  </body>
+
+
+</html>
