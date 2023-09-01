@@ -39,7 +39,7 @@
 
   </head>
   <body style="padding-top: 1px;">
-    <input type="hidden" id="csrf" value="{{csrf_token}}">
+    {% comment %} <input type="hidden" id="csrf" value="{{csrf_token}}"> {% endcomment %}
     <header class="header">
      
       {% include 'main_navbar.html' %}
@@ -51,24 +51,21 @@
 
 
     {% endblock %}
-
-
-
-
+    
   <footer>
     <div class="py-4 font-weight-light bg-primary">
       <div class="container container-fluid">
         <div class="row">
           <div class="col-md-5">
             <h4 class="text-sm" >About Site</h4>
-            <p style='margin-left:7px'>We’re reimagining how you rent and buy, sell. It’s now easier to get into a place you love. So let’s do this, together.</p>
+            <p style='margin-left: 50px'>We’re reimagining how you rent and buy, sell. It’s now easier to get into a place you love. So let’s do this, together.</p>
           </div>
           <div class="col-md-5">
             <h4 class="text-sm" >Contact Us</h4>
             <ul style='list-style: none;'>
               <li><a href="">info@duloft.com</a></li>
 							<li><a href="">Agbani Road, Enugu</a></li>
-							<li><a href="">400001, Nigeria.</a></li>
+							<li><a href="">400100, Nigeria.</a></li>
 							<li><a href="">+234 704-328-5007</a></li>
             </ul>
           </div>

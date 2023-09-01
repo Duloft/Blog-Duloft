@@ -1,14 +1,37 @@
 <!-- waitlist/templates/waitlist/join_waitlist.html -->
 
-<head>
-    <title>Join Waitlist</title>
-</head>
-<body>
-    <h1>Join the Waitlist</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Join</button>
-    </form>
-</body>
+{% extends 'base.html' %}
+{% block title %}Join Us{% endblock %}
+
+{% block start %}
+    <div class="container" style="background-color: #F9F9F9;">
+        <section class="h-100 h-custom">
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-8 col-xl-6">
+                  <div class="card rounded-3">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+                      class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+                      alt="Sample photo">
+                    <div class="card-body p-4 p-md-5">
+                        <h1>Join the Waitlist</h1>
+                        <p> Be among the first to be notified about our product when we launch!</p>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{form.as_p}}
+
+                            <button type="submit" class="btn btn-secondary">Join Now!</button>
+                        </form>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+    </div>
+{% endblock start %}
+
+
+
 

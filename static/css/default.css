@@ -2928,17 +2928,17 @@ fieldset:disabled a.btn {
 }
 
 .btn-secondary:hover {
-    color: #fff;
-    background-color: #e41c78;
-    border-color: #d91a72
+    color: #000;
+    background-color: #e89c31;
+    border-color: #e89c31
 }
 
 .btn-secondary:focus,
 .btn-secondary.focus {
     color: #fff;
-    background-color: #e41c78;
-    border-color: #d91a72;
-    box-shadow: 0 0 0 .2rem rgba(235, 91, 157, 0.5)
+    background-color: #e50914;
+    border-color: #e50914;
+    box-shadow: 0 0 0 .2rem rgba(224, 187, 19, 0.5)
 }
 
 .btn-secondary.disabled,

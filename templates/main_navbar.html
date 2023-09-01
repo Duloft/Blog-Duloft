@@ -151,14 +151,15 @@
     </a>
 
     <div class="navbar-links">
+        <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
         <a href="{% url 'join_waitlist' %}"><span class="title">Join Us!</span></a>
 
-        {% if request.user.is_authenticated %}
+        {% comment %} {% if request.user.is_authenticated %}
 
         <a href="{% url 'user_details' %}"> 
             <span class="dn-lg">
                 {% comment %} <img class="rounded-circle" src="{{request.user.landLord.profile_photo.url}}" alt="e1.png"> {% endcomment %}
-                <span class="dn-1199">Hi, {{request.user.first_name}}</span>
+                {% comment %} <span class="dn-1199">Hi, {{request.user.first_name}}</span>
             </span>
         </a>
 
@@ -170,7 +171,7 @@
 
             <li class="list-inline-item list_s"><a href="" class="flaticon-user"> <span class="dn-lg">Login/Register</span></a></li>
                 
-        {% endif %}
+        {% endif %} {% endcomment %}
 
     </div>
 </nav>
@@ -201,7 +202,9 @@
         </div>
     </div>
     <div class="row sidebar" id="sidebar">
+        <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
         <a href="{% url 'join_waitlist' %}"><span class="title">Join Us!</span></a>
+
     </div>
 </div>
 
