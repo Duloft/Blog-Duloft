@@ -61,7 +61,7 @@ ROOT_URLCONF = 'Blog_DuLoft.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -145,6 +145,7 @@ STATICFILES_DIRS = [
     BASE_DIR/'static',
 ] # storing static files
 
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 # Configure the email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
