@@ -15,7 +15,7 @@ def generate_slug(text):
     
     gen_slug = slugify(text)
     
-    if models.PostModel.objects.filter(slug = gen_slug).exists():
-       gen_slug = gen_slug + generate_random_string(5)
+    # if models.PostModel.objects.filter(slug = gen_slug).exists():
+    #     gen_slug = gen_slug + generate_random_string(5)
         
     return gen_slug

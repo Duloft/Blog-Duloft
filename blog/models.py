@@ -11,7 +11,7 @@ from .utils import generate_slug
 class PostModel(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150, unique=True, blank=True)
-    content = FroalaField()
+    content = FroalaField(theme='dark')
     image = models.ImageField(upload_to='blogPost/')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

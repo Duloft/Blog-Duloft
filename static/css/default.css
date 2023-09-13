@@ -13756,6 +13756,16 @@ a.text-dark:focus {
     }
 }
 
+.text-title h1,
+.text-title h2,
+.text-title h3,
+.text-title h4,
+.text-title h5 {
+    font-size: 1.35rem;
+}
+
+
+
 .text-content h1,
 .text-content h2,
 .text-content h3,
@@ -13772,13 +13782,13 @@ a.text-dark:focus {
 .text-content p,
 .text-content ul,
 .text-content ol {
-    font-size: 1.1rem
+    font-size: 1.25rem
 }
 
 .text-content p,
 .text-content ul,
 .text-content ol {
-    color: #868e96
+    color: #000000
 }
 
 p.lead strong {

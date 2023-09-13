@@ -36,15 +36,14 @@
             <a href="{% url 'blog_detail' blog.slug %}">
               <img class="img-fluid card-img-top" src="{{blog.get_image_url}}" alt="duloft img"/></a>
             <div class="card-body">
-              <a class="text-uppercase text-muted text-sm letter-spacing-2" href="{% url 'blog_detail' blog.slug %}">
-                {{blog.title}} 
-              </a>
-              <h5 class="my-2"><a class="text-dark" href="{% url 'blog_detail' blog.slug %}">
-              {{blog.title}}</a></h5>
+              <h6 class="my-2"><a class="text-dark" href="{% url 'blog_detail' blog.slug %}">
+              {{blog.title}}</a></h6>
               <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>
                 {{blog.created_at}}</p>
               <p class="my-2 text-muted text-sm">
-                {{blog.content|safe}}
+                {{blog.content|safe | truncatewords_html:50}}<!-- Similar to truncatewords, except that it is aware of HTML tags. 
+                  Any tags that are opened in the string and not closed before the truncation point, are closed immediately after the truncation.
+                  This is less efficient than truncatewords, so should only be used when it is being passed HTML text. -->
               </p>
               <a class="btn btn-link pl-0"href="{% url 'blog_detail' blog.slug %}">Read more<i class="fa fa-long-arrow-alt-right ml-2"></i></a> 
             </div>
