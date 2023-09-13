@@ -169,7 +169,7 @@
 
         {% else %}
 
-            <li class="list-inline-item list_s"><a href="www.app.duloft.com/login" class="flaticon-user"> <span class="dn-lg">Login/Register</span></a></li>
+            <li class="list-inline-item list_s"><a href="app.duloft.com/login" class="flaticon-user"> <span class="dn-lg">Login/Register</span></a></li>
                 
         {% endif %} {% endcomment %}
 
@@ -204,7 +204,7 @@
     <div class="row sidebar" id="sidebar">
         <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
         <a href="{% url 'join_waitlist' %}"><span class="title">Join Us!</span></a>
-        <a href="www.app.duloft.com"><span class="title">Get Started!</span></a>
+        {% comment %} <a href="app.duloft.com"><span class="title">Get Started!</span></a> {% endcomment %}
 
     </div>
 </div>

@@ -27,8 +27,8 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['duloft.com', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://duloft.com']
+ALLOWED_HOSTS = ['duloft.com', '127.0.0.1', 'app.duloft.com']
+CSRF_TRUSTED_ORIGINS = ['https://duloft.com', 'https://app.duloft.com']
 
 
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     
     'fontawesome_5',
     
+    'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
     'waitlist.apps.WaitlistConfig',
 ]
@@ -96,13 +97,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'CUQovO38ogT36qF840PM',
-        'HOST': 'containers-us-west-106.railway.app',
-        'PORT': '5753',
+        'PASSWORD': 'prwyXsjFHHh8KlJbZy9m',
+        'HOST': 'containers-us-west-136.railway.app',
+        'PORT': '8011',
     }
-    
 }
 
+
+AUTH_USER_MODEL = 'accounts.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -157,6 +159,13 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+
+
+# Media files (Uploaded Images, Docs, Video)
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR/"media/"
+
 
 # Configure the email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
