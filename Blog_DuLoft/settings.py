@@ -28,6 +28,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['duloft.com', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://duloft.com/']
 
 
 # Application definition
