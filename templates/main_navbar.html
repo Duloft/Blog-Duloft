@@ -147,7 +147,7 @@
 
 <nav class="navbar">
     <a href="" class="logo">
-        <img style="width: 192px; height: 53px; padding-left: 15px;" class="logo1" src="{% static 'images/Duloft-logo.png' %}" alt="header-logo.png">
+        <img style="width: 192px; height: 53px; padding-left: 15px;" class="logo1" src="{% static 'images/Duloft-logo.png' %}" alt="DuLoft">
     </a>
 
     <div class="navbar-links">
@@ -169,7 +169,7 @@
 
         {% else %}
 
-            <li class="list-inline-item list_s"><a href="" class="flaticon-user"> <span class="dn-lg">Login/Register</span></a></li>
+            <li class="list-inline-item list_s"><a href="www.app.duloft.com/login" class="flaticon-user"> <span class="dn-lg">Login/Register</span></a></li>
                 
         {% endif %} {% endcomment %}
 
@@ -187,7 +187,7 @@
             <span onclick="toggleNavbar()" style="background-color: transparent; border: none; color: #000; font-size: 20px; cursor: pointer;">&#9776;</span>
         </div>
         <div class="col-8">
-            <img class='mobile_logo'  src="{% static 'images/Duloft-logo.png' %}" alt="duloft.png" >
+            <img class='mobile_logo'  src="{% static 'images/Duloft-logo.png' %}" alt="duloft" >
         </div>
         <div class="col-2">
             {% if request.user.is_authenticated%}
@@ -204,6 +204,7 @@
     <div class="row sidebar" id="sidebar">
         <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
         <a href="{% url 'join_waitlist' %}"><span class="title">Join Us!</span></a>
+        <a href="www.app.duloft.com"><span class="title">Get Started!</span></a>
 
     </div>
 </div>

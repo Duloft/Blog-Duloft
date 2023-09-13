@@ -20,6 +20,7 @@
             </p>
             {% comment %} <a class="btn btn-link p-0" href="">Continue reading <i class="fa fa-long-arrow-alt-right"></i></a> {% endcomment %}
             <a class="btn btn-link " href="{% url 'join_waitlist' %}">Join Us Now! <i class="fa fa-plus"></i></a>
+            {% comment %} <a class="btn btn-link " href="www.app.duloft.com">Get Started!</i></a> {% endcomment %}
           </div>
         </div>
       </div>
@@ -33,13 +34,13 @@
         <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
           <div class="card shadow border-0 h-100">
             <a href="{% url 'blog_detail' blog.slug %}">
-              <img class="img-fluid card-img-top" src="{{blog.get_image_url}}" alt="..."/></a>
+              <img class="img-fluid card-img-top" src="{{blog.get_image_url}}" alt="duloft img"/></a>
             <div class="card-body">
-              <a class="text-uppercase text-muted text-sm letter-spacing-2" href="#">
+              <a class="text-uppercase text-muted text-sm letter-spacing-2" href="{% url 'blog_detail' blog.slug %}">
                 {{blog.title}} 
               </a>
               <h5 class="my-2"><a class="text-dark" href="{% url 'blog_detail' blog.slug %}">
-               {{blog.title}}          </a></h5>
+              {{blog.title}}</a></h5>
               <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>
                 {{blog.created_at}}</p>
               <p class="my-2 text-muted text-sm">

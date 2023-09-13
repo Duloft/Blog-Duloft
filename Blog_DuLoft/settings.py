@@ -27,7 +27,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['duloft.com', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     
     'fontawesome_5',
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -81,19 +83,19 @@ WSGI_APPLICATION = 'Blog_DuLoft.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     
-    # 'default':{
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'railway',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'ZTJ7B1tNgJ70IqMbMPLu',
-    #     'HOST': 'containers-us-west-107.railway.app',
-    #     'PORT': '7919',
-    # }
+    'default':{
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'CUQovO38ogT36qF840PM',
+        'HOST': 'containers-us-west-106.railway.app',
+        'PORT': '5753',
+    }
     
 }
 
@@ -139,13 +141,18 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+STATIC_ROOT =  BASE_DIR/'staticfiles'  # storing static files in the cloud
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR/'static',
 ] # storing static files
 
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # Configure the email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
