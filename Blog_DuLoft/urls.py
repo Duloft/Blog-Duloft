@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('back-in/', admin.site.urls),
     path('', include('blog.urls')),
     path('join-us/', include('waitlist.urls')),
     path('froala_editor/',include('froala_editor.urls')) 
