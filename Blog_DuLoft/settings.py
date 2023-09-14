@@ -27,8 +27,8 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['duloft.com', '127.0.0.1', 'app.duloft.com']
-# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['duloft.com', '127.0.0.1', 'app.duloft.com']
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://duloft.com', 'https://app.duloft.com']
 
 
