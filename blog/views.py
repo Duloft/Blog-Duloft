@@ -6,7 +6,8 @@ from .models import PostModel
 # Create your views here.
 
 def blog_post(request):
-    context = {'blogs': PostModel.objects.all().order_by('-created_at')}
+    blogs = PostModel.objects.all().order_by('-created_at')
+    context = {'blogs': blogs}
     return render(request, 'home.html', context)
 
 # @login_required
