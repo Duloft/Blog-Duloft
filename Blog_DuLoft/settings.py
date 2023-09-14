@@ -27,22 +27,22 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['duloft.com','app.duloft.com']
-CSRF_TRUSTED_ORIGINS = ['https://duloft.com', 'https://app.duloft.com',]
+ALLOWED_HOSTS = ['duloft.com', '127.0.0.1', 'app.duloft.com']
+# ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://duloft.com', 'https://app.duloft.com']
 
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
+    "whitenoise.runserver_nostatic",
     'corsheaders',
     'froala_editor',
     
@@ -54,15 +54,22 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://duloft.com",
+    "https://app.duloft.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:8000",
 ]
 
 ROOT_URLCONF = 'Blog_DuLoft.urls'
@@ -99,7 +106,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'prwyXsjFHHh8KlJbZy9m',
+        'PASSWORD': config('PGPASSWORD'),
         'HOST': 'containers-us-west-136.railway.app',
         'PORT': '8011',
     }
@@ -143,8 +150,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / "staticfiles" # storing static files in the cloud
-
+STATIC_ROOT =  BASE_DIR/'staticfiles'  # storing static files in the cloud
 STATICFILES_DIRS = [
     BASE_DIR/'static',
 ] # storing static files
@@ -188,31 +194,3 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
-
-# Deploying
-# SECURE_HSTS_SECONDS = 31536000 # 1 year
-# CSRF_COOKIE_SECURE =True
-# SESSION_COOKIE_SECURE = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
-# SECURE_SSL_REDIRECT = True
-
-
-
-# import logging, os
-
-# LOGGING = {
-#     'version':1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {
-#             'class':'logging.StreamHandler',
-#         },
-#     },
-#     'loggers':{
-#         'django':{
-#             'handlers':['console'],
-#             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
-#         }
-#     }
-# }
