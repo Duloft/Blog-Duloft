@@ -27,8 +27,8 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['duloft.com', '127.0.0.1', 'app.duloft.com']
-CSRF_TRUSTED_ORIGINS = ['https://duloft.com', 'https://app.duloft.com', 'http://127.0.0.1']
+ALLOWED_HOSTS = ['duloft.com','app.duloft.com']
+CSRF_TRUSTED_ORIGINS = ['https://duloft.com', 'https://app.duloft.com',]
 
 
 
@@ -190,12 +190,12 @@ MESSAGE_TAGS = {
 }
 
 # Deploying
-SECURE_HSTS_SECONDS = 31536000 # 1 year
-CSRF_COOKIE_SECURE =True
-SESSION_COOKIE_SECURE = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-SECURE_SSL_REDIRECT = True
+# SECURE_HSTS_SECONDS = 31536000 # 1 year
+# CSRF_COOKIE_SECURE =True
+# SESSION_COOKIE_SECURE = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
+# SECURE_SSL_REDIRECT = True
 
 
 
