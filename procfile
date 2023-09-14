@@ -1,1 +1,2 @@
-web: gunicorn Blog_DuLoft.wsgi
+web: gunicorn Blog_DuLoft.wsgi:application --log-file - --log-level debug
+
