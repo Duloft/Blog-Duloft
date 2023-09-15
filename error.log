@@ -248,3 +248,69 @@ Traceback (most recent call last):
     conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
 django.db.utils.OperationalError: could not translate host name "containers-us-west-136.railway.app" to address: Unknown host
 
+Internal Server Error: /blog-post-detail/renting-vs-buying-making-the-right-decision/
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\backends\base\base.py", line 289, in ensure_connection
+    self.connect()
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\backends\base\base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\backends\postgresql\base.py", line 269, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "containers-us-west-136.railway.app" to address: Unknown host
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\Blog_DuLoft\blog\views.py", line 68, in blog_detail
+    raise e
+  File "C:\Users\User\Desktop\Projects\GLISSUS\Blog_DuLoft\blog\views.py", line 65, in blog_detail
+    blog_obj = get_object_or_404(PostModel, slug=slug)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\shortcuts.py", line 85, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\models\query.py", line 633, in get
+    num = len(clone)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\models\sql\compiler.py", line 1558, in execute_sql
+    cursor = self.connection.cursor()
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\backends\base\base.py", line 330, in cursor
+    return self._cursor()
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\backends\base\base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\backends\base\base.py", line 288, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\backends\base\base.py", line 289, in ensure_connection
+    self.connect()
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\backends\base\base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\db\backends\postgresql\base.py", line 269, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: could not translate host name "containers-us-west-136.railway.app" to address: Unknown host
+

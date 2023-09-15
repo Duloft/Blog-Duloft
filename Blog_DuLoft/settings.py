@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
@@ -57,7 +56,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -65,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -87,7 +86,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media',
             ],
         },
     },
@@ -153,7 +151,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR/'staticfiles'  # storing static files in the cloud
+STATIC_ROOT = BASE_DIR / "productionstaticfiles"  # storing static files in the cloud
 STATICFILES_DIRS = [
     BASE_DIR/'static',
 ] # storing static files
@@ -170,7 +168,8 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        "BACKEND": 'whitenoise.storage.CompressedStaticFilesStorage',
+# 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
 
