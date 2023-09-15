@@ -3,11 +3,11 @@ from .models import Waitlist
 
 
 class WaitListForm(forms.ModelForm):
-    own_a_house = forms.BooleanField(label="I own a house and I want to rent or sell", 
-                                     widget=forms.CheckboxInput(attrs={'class':'form-control-check-input'}))
+    own_a_house = forms.BooleanField(required=False, label="I own a house and I want to rent or sell", 
+                                    widget=forms.CheckboxInput(attrs={'class':'form-control-check-input'}))
     
-    manage_my_property = forms.BooleanField(label="I want DuLoft to manage my property", 
-                                     widget=forms.CheckboxInput(attrs={'class':'form-control-check-input'}))
+    manage_my_property = forms.BooleanField(label="I want DuLoft to manage my property", required=False, 
+                                    widget=forms.CheckboxInput(attrs={'class':'form-control-check-input'}))
     class Meta:
         model = Waitlist
         fields = "__all__"

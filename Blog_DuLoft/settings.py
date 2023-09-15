@@ -180,18 +180,18 @@ STORAGES = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/"media"
 
-# if not DEBUG:
-#     CLOUDINARY_STORAGE = {
-#         'CLOUD_NAME':config("CLOUDINARY_CLOUD_NAME"),
-#         'API_KEY': config("CLOUDINARY_API_KEY"),
-#         'API_SECRET': config("CLOUDINARY_API_SECRET")
-#     }
+if not DEBUG:
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME':config("CLOUDINARY_CLOUD_NAME"),
+        'API_KEY': config("CLOUDINARY_API_KEY"),
+        'API_SECRET': config("CLOUDINARY_API_SECRET")
+    }
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME':"dzfxadkyb",
-    'API_KEY': "713743731583346",
-    'API_SECRET': "myUgLfHuu9FoqSrbWAIAWGilQ2k"
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME':"dzfxadkyb",
+#     'API_KEY': "713743731583346",
+#     'API_SECRET': "myUgLfHuu9FoqSrbWAIAWGilQ2k"
+# }
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Configure the email settings
