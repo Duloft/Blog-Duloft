@@ -19,7 +19,7 @@ def list_saved(sender, instance, created, **kwargs):
             sendmailPdf(subject=subject, message=message, receiver=[email,])
             
 
-        if own_a_house:
+        if own_a_house and not manage_my_property:
             message = "Thank You for your interest in letting us list your property. We will be contacting you soon for more updates."
             email = instance.email
             sendmailPdf(subject=subject, message=message, receiver=[email,])

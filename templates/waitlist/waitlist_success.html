@@ -1,11 +1,26 @@
 <!-- waitlist/templates/waitlist/waitlist_success.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Waitlist Success</title>
-</head>
+{% extends 'base.html' %}
+{% block title %}Waitlist Success{% endblock %}
+
+{% block start %}
 <body>
-    <h1>Thank you for joining the waitlist!</h1>
-    <p>We'll notify you once our services are available.</p>
+    <div class="container" style="background-color: #F9F9F9;">
+        <section class="h-100 h-custom">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-lg-8 col-xl-12">
+                        <h1>Thank you for joining the waitlist!</h1>
+                        <p>We'll notify you once our services are available.</p>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
-</html>
+{% endblock start %}
