@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'corsheaders',
     'froala_editor',
     
@@ -164,7 +166,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        # "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
@@ -177,6 +180,19 @@ STORAGES = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/"media"
 
+# if not DEBUG:
+#     CLOUDINARY_STORAGE = {
+#         'CLOUD_NAME':config("CLOUDINARY_CLOUD_NAME"),
+#         'API_KEY': config("CLOUDINARY_API_KEY"),
+#         'API_SECRET': config("CLOUDINARY_API_SECRET")
+#     }
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME':"dzfxadkyb",
+    'API_KEY': "713743731583346",
+    'API_SECRET': "myUgLfHuu9FoqSrbWAIAWGilQ2k"
+}
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Configure the email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
