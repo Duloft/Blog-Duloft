@@ -6,6 +6,7 @@ class WaitlistAdmin(admin.ModelAdmin):
     list_display = [
         'full_name',
         'phone_number',
+        'email',
         'state','location',
         'own_a_house',
         'manage_my_property'
