@@ -110,8 +110,8 @@ DATABASES = {
         'NAME': 'railway',
         'USER': 'postgres',
         'PASSWORD': config('PGPASSWORD'),
-        'HOST': 'containers-us-west-136.railway.app',
-        'PORT': '8011',
+        'HOST': config('PGHOST'),
+        'PORT': config('PGPORT'),
     }
 }
 
