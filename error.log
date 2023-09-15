@@ -75,3 +75,80 @@ Traceback (most recent call last):
   File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\contrib\staticfiles\storage.py", line 513, in stored_name
     raise ValueError(
 ValueError: Missing staticfiles manifest entry for 'froala_editor/css/froala_editor.min.css'
+Internal Server Error: /back-in/blog/postmodel/2/change/
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\response.py", line 89, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1070, in render
+    return render_value_in_context(output, context)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\template\base.py", line 1047, in render_value_in_context
+    value = str(value)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\utils\html.py", line 420, in <lambda>
+    klass.__str__ = lambda self: mark_safe(klass_str(self))
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\forms\widgets.py", line 79, in __str__
+    return self.render()
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\forms\widgets.py", line 95, in render
+    "\n".join(
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\forms\widgets.py", line 115, in <genexpr>
+    [
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\forms\widgets.py", line 120, in <listcomp>
+    self.absolute_path(path),
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\forms\widgets.py", line 136, in absolute_path
+    return static(path)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\templatetags\static.py", line 179, in static
+    return StaticNode.handle_simple(path)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\templatetags\static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\contrib\staticfiles\storage.py", line 203, in url
+    return self._url(self.stored_name, name, force)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\contrib\staticfiles\storage.py", line 182, in _url
+    hashed_name = hashed_name_func(*args)
+  File "C:\Users\User\Desktop\Projects\GLISSUS\home_venv\lib\site-packages\django\contrib\staticfiles\storage.py", line 513, in stored_name
+    raise ValueError(
+ValueError: Missing staticfiles manifest entry for 'froala_editor/css/froala_editor.min.css'
