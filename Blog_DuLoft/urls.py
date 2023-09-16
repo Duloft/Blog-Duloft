@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = "DuLoft Blog"
+
 urlpatterns = [
     path('back-in/', admin.site.urls),
     path('', include('blog.urls')),
