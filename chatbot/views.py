@@ -41,31 +41,25 @@ greeting_message = [
     'good evening'
 ]
 
-greeting_response = f"""
-Hello, it's nice to hear from you, I am D-Bot.
-DuLoft chatbot assistant.
-
-Here is a list of what I can do for you.
-
-{menu}
-"""
 
 def send_message(to: str, message: str):
     response = client.messages.create(
                             body=message,
                             from_='whatsapp:+14155238886',
-                            to=f'whatsapp:{to}'
+                            to=to
                         )
     return response
 
 
 @csrf_exempt
 def handle_incoming_messages(request):
+    print(request.POST)
     if request.method == 'POST':
-        incoming_message = request.POST.get('Body', '').strip().lower()
-        sender_number = request.POST.get('From', '')
+        incoming_message = request.POST["Body"].lower()
+        sender_name = request.POST["ProfileName"]
+        sender_number = request.POST["From"]
 
-        response_message = process_message(incoming_message, sender_number)
+        response_message = process_message(incoming_message, sender_number, sender_name)
 
         response = send_message(sender_number, response_message)
         return HttpResponse("Sent...")
@@ -87,8 +81,16 @@ def handle_incoming_messages(request):
 #     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 
-def process_message(message: str , sender_number: str):
-    message = message.lower().strip()
+def process_message(message, sender_number, sender_name):
+    greeting_response = f"""
+    Hello {sender_name}, it's nice to hear from you, I am D-Bot.
+    DuLoft chatbot assistant.
+
+    Here is a list of what I can do for you.
+
+    {menu}
+    """
+    message = message.lower()
     
     if message.lower() in greeting_message:
         return greeting_response
