@@ -50,6 +50,8 @@ def send_message(to: str, message: str):
                             from_='+14155238886',
                             to=to
                         )
+    print(response.sid)
+    print(response)
     return response
 
 
