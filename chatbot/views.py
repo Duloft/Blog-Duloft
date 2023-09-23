@@ -54,6 +54,9 @@ def send_message(to: str, message: str):
 @csrf_exempt
 def handle_incoming_messages(request):
     print(request.POST)
+    print(request.POST['Body'])
+    print(request.POST['ProfileName'])
+    print(request.POST['From'])
     if request.method == 'POST':
         incoming_message = request.POST["Body"].lower()
         sender_name = request.POST["ProfileName"]
