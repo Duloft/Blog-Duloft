@@ -43,6 +43,7 @@ greeting_message = [
 
 
 def send_message(to: str, message: str):
+    print('ready to send...')
     response = client.messages.create(
                             body=message,
                             from_='+14155238886',
