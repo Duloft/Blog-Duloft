@@ -45,50 +45,54 @@ greeting_message = [
 def send_message(to: str, message: str):
     print('ready to send...')
     print(f"response: {message}")
-    response = client.messages.create(
+    # response = client.messages.create(
+    #                         body=message,
+    #                         from_='+14155238886',
+    #                         to=to
+    #                     )
+    # print(response.sid)
+    # print(response)
+    client.messages.create(
                             body=message,
                             from_='+14155238886',
                             to=to
                         )
-    print(response.sid)
-    print(response)
-    return response
-
-
-# @csrf_exempt
-# def handle_incoming_messages(request):
-#     print(request.POST)
-#     print(request.POST['Body'])
-#     print(request.POST['ProfileName'])
-#     print(request.POST['From'])
-#     if request.method == 'POST':
-#         incoming_message = request.POST["Body"].strip().lower()
-#         sender_name = request.POST["ProfileName"]
-#         sender_number_details = request.POST["From"].split(':')
-#         sender_number = sender_number_details[1]
-#         print(sender_number)
-#         response_message = process_message(incoming_message, sender_number, sender_name)
-
-#         response = send_message(sender_number, response_message)
-#         return HttpResponse("Sent...")
 
 
 @csrf_exempt
 def handle_incoming_messages(request):
+    print(request.POST)
+    print(request.POST['Body'])
+    print(request.POST['ProfileName'])
+    print(request.POST['From'])
     if request.method == 'POST':
-        incoming_message = request.POST.get('Body', '').strip().lower()
-        sender_number = request.POST.get('From', '')
+        incoming_message = request.POST["Body"].strip().lower()
         sender_name = request.POST["ProfileName"]
-
-        response_message = process_message(incoming_message, sender_number, sender_name)
+        sender_number_details = request.POST["From"].split(':')
+        sender_number = sender_number_details[1]
         print(sender_number)
-        response = MessagingResponse()
-        response.message(response_message)
-        print(response)
+        response_message = process_message(incoming_message, sender_number, sender_name)
 
-        return JsonResponse({'twiml': str(response)})
+        response = send_message(sender_number, response_message)
+        return HttpResponse("Sent...")
+
+
+# @csrf_exempt
+# def handle_incoming_messages(request):
+#     if request.method == 'POST':
+#         incoming_message = request.POST.get('Body', '').strip().lower()
+#         sender_number = request.POST.get('From', '')
+#         sender_name = request.POST["ProfileName"]
+
+#         response_message = process_message(incoming_message, sender_number, sender_name)
+#         print(sender_number)
+#         response = MessagingResponse()
+#         response.message(response_message)
+#         print(response)
+
+#         return JsonResponse({'twiml': str(response)})
     
-    return JsonResponse({'error': 'Invalid request method'}, status=400)
+#     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 
 def process_message(message, sender_number, sender_name):
