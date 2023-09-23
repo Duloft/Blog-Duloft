@@ -96,7 +96,7 @@ def process_message(message, sender_number, sender_name):
     message = message
     print(f"in process message > {message}")
     if message in greeting_message:
-        
+        print("message in greeting")
         return greeting_response
     
     if message == "menu":
@@ -106,14 +106,14 @@ def process_message(message, sender_number, sender_name):
     service_values = list_of_services.values()
     if message in service_keys:
         # User selected a predefined question
-        response = handle_predefined_question(message)
+        return handle_predefined_question(message)
     elif message in service_values:
-        response = handle_predefined_question(message)
+        return handle_predefined_question(message)
     else:
         # User entered a custom question
-        response = handle_custom_question(message, sender_number)
+        return handle_custom_question(message, sender_number)
+    
 
-    return response
 
 def handle_predefined_question(selected_option: str):
     if selected_option.isdigit():
