@@ -58,7 +58,7 @@ def handle_incoming_messages(request):
     print(request.POST['ProfileName'])
     print(request.POST['From'])
     if request.method == 'POST':
-        incoming_message = request.POST["Body"].lower()
+        incoming_message = request.POST["Body"].strip().lower()
         sender_name = request.POST["ProfileName"]
         sender_number = request.POST["From"]
 
@@ -93,12 +93,13 @@ def process_message(message, sender_number, sender_name):
 
     {menu}
     """
-    message = message.lower()
-    
-    if message.lower() in greeting_message:
+    message = message
+    print(f"in process message > {message}")
+    if message in greeting_message:
+        
         return greeting_response
     
-    if message.lower() == "menu":
+    if message == "menu":
         return "Please select from the following options:\n" + "\n".join(menu)
     
     service_keys = list_of_services.keys()
