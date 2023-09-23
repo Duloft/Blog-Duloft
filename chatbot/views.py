@@ -1,8 +1,15 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from twilio.twiml.messaging_response import MessagingResponse
+from twilio.rest import Client
 from .models import Complaint
 
+from django.conf import settings
+
+account_sid = settings.TWILIO_ACCOUNT_SID
+auth_token = settings.TWILIO_AUTH_TOKEN
+
+client = Client(account_sid, auth_token)
 
 menu = [
     '1. Property Listing',
@@ -43,6 +50,13 @@ Here is a list of what I can do for you.
 {menu}
 """
 
+def send_message(to: str, message: str):
+    response = client.messages.create(
+                            body=message,
+                            from_='whatsapp:+14155238886',
+                            to=f'whatsapp:{to}'
+                        )
+    return response
 
 
 @csrf_exempt
@@ -53,12 +67,24 @@ def handle_incoming_messages(request):
 
         response_message = process_message(incoming_message, sender_number)
 
-        response = MessagingResponse()
-        response.message(response_message)
+        response = send_message(sender_number, response_message)
+        return HttpResponse("Sent...")
 
-        return JsonResponse({'twiml': str(response)})
+
+# @csrf_exempt
+# def handle_incoming_messages(request):
+#     if request.method == 'POST':
+#         incoming_message = request.POST.get('Body', '').strip().lower()
+#         sender_number = request.POST.get('From', '')
+
+#         response_message = process_message(incoming_message, sender_number)
     
-    return JsonResponse({'error': 'Invalid request method'}, status=400)
+#         response = MessagingResponse()
+#         response.message(response_message)
+
+#         return JsonResponse({'twiml': str(response)})
+    
+#     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 
 def process_message(message: str , sender_number: str):
