@@ -8,3 +8,19 @@ characters = string.ascii_letters + string.digits + string.punctuation
 random_string = ''.join(random.choice(characters) for _ in range(55))
 
 print(random_string)
+
+
+
+# import secrets
+# import string
+
+# # Define the characters to choose from for the password
+# characters = string.ascii_letters + string.digits
+
+# # Set the password length
+# password_length = 18
+
+# # Generate the password
+# password = ''.join(secrets.choice(characters) for _ in range(password_length))
+
+# print(password)

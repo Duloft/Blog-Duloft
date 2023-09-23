@@ -19,12 +19,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-admin.site.site_header = "DuLoft Blog"
+admin.site.site_header = "DuLoft DashBoard"
 
 urlpatterns = [
     path('back-in/', admin.site.urls),
     path('', include('blog.urls')),
     path('join-us/', include('waitlist.urls')),
+    path('chatbot/', include('chatbot.urls')),
     path('froala_editor/',include('froala_editor.urls')) 
     
 ]

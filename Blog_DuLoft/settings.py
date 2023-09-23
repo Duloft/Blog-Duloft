@@ -47,11 +47,14 @@ INSTALLED_APPS = [
     'cloudinary',
     'corsheaders',
     'froala_editor',
+    'ckeditor',
     
     'fontawesome_5',
     
     'accounts.apps.AccountsConfig',
     'blog.apps.BlogConfig',
+    'chatbot.apps.ChatbotConfig',
+    'complaint_manager.apps.ComplaintManagerConfig',
     'waitlist.apps.WaitlistConfig',
 ]
 
@@ -206,6 +209,11 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+# Twilio Credentials
+TWILIO_ACCOUNT_SID = 'AC5394011ca4ff8f15d52cf1d7ed2fa3de'
+TWILIO_AUTH_TOKEN = 'eaf684d8def0741a56466248e16eb839'
+TWILIO_PHONE_NUMBER = '+14155238886'
 
 
 LOGGING = {
