@@ -1,5 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+from froala_editor.fields import FroalaField
 
 LOG_STATUS = [
     ('Active', 'Active'),
@@ -11,8 +11,8 @@ LOG_STATUS = [
 
 class CustomerLog(models.Model):
     customer_name = models.CharField(max_length=100)
-    complaint_text = RichTextField()
-    possible_solution = RichTextField(blank=True, null=True)
+    complaint_text = FroalaField(theme='dark')
+    possible_solution = FroalaField(theme='dark')
     status = models.CharField(max_length=20, choices=LOG_STATUS, default='Pending', help_text="Stage act which the log is. \
         Pending is untended to Active is being tended to closed is tended to and resolved Unresolved tended to but not resolved")
     date_updated = models.DateTimeField(auto_now=True)

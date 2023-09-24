@@ -3,7 +3,6 @@ from django.views.decorators.csrf import csrf_exempt
 from twilio.twiml.messaging_response import MessagingResponse
 from twilio.rest import Client
 from .models import Complaint
-import pywhatkit 
 
 from django.conf import settings
 
@@ -46,8 +45,6 @@ greeting_message = [
 def send_message(to: str, message: str):
     print('ready to send...')
     print(f"response: {message}")
-    pywhatkit.sendwhatmsg_instantly(to, message)
-    print('done....')
     # response = client.messages.create(
     #                         body=message,
     #                         from_='+14155238886',
@@ -55,11 +52,11 @@ def send_message(to: str, message: str):
     #                     )
     # print(response.sid)
     # print(response)
-    # client.messages.create(
-    #                         body=message,
-    #                         from_='+14155238886',
-    #                         to=to
-    #                     )
+    client.messages.create(
+                            body=message,
+                            from_='+14155238886',
+                            to=to
+                        )
 
 
 @csrf_exempt
