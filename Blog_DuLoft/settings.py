@@ -27,7 +27,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['duloft.com', '127.0.0.1', 'app.duloft.com']
+ALLOWED_HOSTS = ['duloft.com', '127.0.0.1', 'app.duloft.com', 'ade8-102-89-23-63.ngrok-free.app']
 # ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://duloft.com', 'https://app.duloft.com']
 
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'cloudinary',
     'corsheaders',
     'froala_editor',
-    'ckeditor',
     
     'fontawesome_5',
     

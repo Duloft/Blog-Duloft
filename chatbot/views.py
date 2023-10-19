@@ -42,7 +42,7 @@ greeting_message = [
 ]
 
 
-def send_message(to: str, message: str):
+def send_message(to: str, from_: str, message: str):
     print('ready to send...')
     print(f"response: {message}")
     # response = client.messages.create(
@@ -54,7 +54,7 @@ def send_message(to: str, message: str):
     # print(response)
     client.messages.create(
                             body=message,
-                            from_='+14155238886',
+                            from_=from_,
                             to=to
                         )
 
@@ -68,12 +68,13 @@ def handle_incoming_messages(request):
     if request.method == 'POST':
         incoming_message = request.POST["Body"].strip().lower()
         sender_name = request.POST["ProfileName"]
-        sender_number_details = request.POST["From"].split(':')
-        sender_number = sender_number_details[1]
-        print(sender_number)
+        # sender_number_details = request.POST["From"].split(':')
+        sender_number = request.POST["From"]
+        receiver_number = request.POST["To"]
+        # print(sender_number)
         response_message = process_message(incoming_message, sender_number, sender_name)
 
-        response = send_message(sender_number, response_message)
+        response = send_message(sender_number, receiver_number, response_message)
         return HttpResponse("Sent...")
 
 

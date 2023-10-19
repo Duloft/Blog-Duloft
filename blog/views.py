@@ -42,7 +42,7 @@ def blog_post(request):
 #     form = BlogForm(instance=blog_obj)
 #     if request.method == 'POST':
 #         form = BlogForm(request.POST, request.FILES, instance=blog_obj)
-   
+
 #         if form.is_valid():
 #             blog_obj = form.save(commit=False)
 #             blog_obj.user = request.user
