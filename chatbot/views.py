@@ -103,7 +103,7 @@ def process_message(message, sender_number, sender_name):
     if message in service_keys:
         # User selected a predefined question
         return handle_predefined_question(message)
-    elif message in service_values:
+    elif message.capitalize() in service_values:
         return handle_predefined_question(message)
     else:
         # User entered a custom question
