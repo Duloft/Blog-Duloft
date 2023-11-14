@@ -77,3 +77,23 @@ ul li {
 .calculator button:hover {
     background-color: #000;
 }
+
+
+/* Mobile-friendly styles using media queries */
+@media screen and (max-width: 768px) {
+    .pricing-container {
+        flex-direction: column;
+        margin: 10px auto;
+    }
+
+    .pricing-plan {
+        width: 100%;
+        padding: 10px;
+        margin: 10px;
+
+    }
+  
+    .calculator form {
+        width: 80%;
+    }
+}
