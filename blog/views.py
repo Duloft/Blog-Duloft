@@ -90,3 +90,8 @@ def blog_detail(request, slug):
     #     blog_obj.delete()
 
     # return redirect('/see-blog/')
+
+
+def pricing(request):
+    return render(request, 'pricing.html')
+

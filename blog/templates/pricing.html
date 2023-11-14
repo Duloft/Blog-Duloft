@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Pricing{% endblock %}
+{% block start %}
+{% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<body>
+  <header class="tag">
+    <h1>Invest Wisely, Thrive Boldly</h1>
+    <p>Pricing That Fits Your Growth</p>
+  </header>
+
+  <section class="pricing-container">
+    <div class="pricing-plan">
+      <h2>Basic Plan</h2>
+      <h3 class="price">5.0% </h3>
+      <ul>
+        <li>Commission or service fee is 5.0% uncapped</li>
+        <li>Transaction charge 1.7% capped</li>
+        <li>Transactions charge are capped at ₦3000, meaning that's the absolute maximum you'll ever pay in charges per transaction</li>
+      </ul>
+    </div>
+
+    <div class="pricing-plan">
+      <h2>Featured Plan</h2>
+      <h3 class="custom-price">Custom Price</h3>
+      <ul>
+        <li>Commission or service fee is 5.0% uncapped</li>
+        <li>Transaction charge 1.7% capped</li>
+        <li>Management and maintenance fee</li>
+        <li>Transactions charge are capped at ₦3000, meaning that's the absolute maximum you'll ever pay in charges per transaction</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="calculator">
+    <h2 style="text-align: center;">Price Calculator</h2>
+    <form id="priceCalculatorForm">
+      <label for="originalPrice">Property Price:</label>
+      <input type="number" id="originalPrice" name="originalPrice" required>
+      <label for="percentage">Percentage:</label>
+      <input type="number" id="percentage" name="percentage" required>
+      <button type="button" onclick="calculatePrice()">Calculate</button>
+
+      <h6 style="margin-top: 10px;" id="result">New Price: NGN 0.00</h6>
+    </form>
+  </section>
+
+  <script>
+    function calculatePrice() {
+      const originalPrice = parseFloat(document.getElementById('originalPrice').value);
+      const percentage = parseFloat(document.getElementById('percentage').value);;
+    
+      if (!isNaN(originalPrice) && !isNaN(percentage)) {
+        const calculatedPrice = (originalPrice + (originalPrice *  (percentage/100) )).toFixed(2);
+        // Format the calculated price with commas and round to two decimal places
+        const formattedPrice = parseFloat(calculatedPrice).toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'NGN',
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        document.getElementById('result').innerHTML = `New Price: ${formattedPrice}`;
+      } else {
+        alert('Please enter valid numeric values for both fields.');
+      }
+    }
+  </script>    
+
+  {% endblock %}
+
+  {% comment %} <footer>
+    <p>&copy; 2023 Your Prop-Tech Company. All rights reserved.</p>
+  </footer>
+</body>
+
+</html> {% endcomment %}
