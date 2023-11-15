@@ -1,12 +1,21 @@
 {% load static %}
 
 <style>
-    .navbar {
+    /* Common Styles for Navbar */
+    .navbar, .topnavbar, .sidebar {
+        background-color: #fff;
+        color: #000;
+        padding: 10px;
+    }
+
+    .navbar, .topnavbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
-        background-color: #fff;
+    }
+
+    /* Navbar */
+    .navbar {
         position: sticky;
         top: 0;
         z-index: 999;
@@ -15,107 +24,77 @@
     .navbar .logo {
         font-size: 26px;
         font-weight: bold;
+        padding-left: 15px;
     }
-      
+
     .navbar-links {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
-      
+
     .navbar-links a {
         margin: 0 15px;
-        font-size: 16px;  
+        font-size: 16px;
     }
 
     a:hover {
-        color:#E50914;
+        color: #E50914;
     }
 
-    .navbar-toggle {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
+    /* Mobile Navbar */
+    .topnavbar {
         display: none;
     }
-      
-    .navbar-toggle-icon {
+
+    .mobile-logo {
+        width: 128px;
+        height: 35px;
+        margin: 0 auto;
         display: block;
-        width: 24px;
-        height: 2px;
-        margin: 4px 0;
-        background-color: #000;
-        position: relative;
-        transition: transform 0.3s ease-out;
-    }
-      
-    .navbar-toggle-icon:before,
-    .navbar-toggle-icon:after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-color: inherit;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-      
-    .navbar-toggle-icon:before {
-        transform: translateY(-8px);
-    }
-      
-    .navbar-toggle-icon:after {
-        transform: translateY(8px);
-    }
-    
-    .topnavbar{
-        display:none;
     }
 
-    .sidebar{
-        display:none;
+    .sidebar {
+        display: none;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .sidebar a {
+        display: block;
+        padding: 15px;
+        margin: 0 10px;
+        text-align: center;
+        color: #000;
+        border-bottom: 1px solid #bbb;
+    }
+
+    .sidebar a:hover {
+        background-color: #E50914;
+        color: #f2f2f2;
     }
 
     /* Media Query for Mobile Devices */
     @media screen and (max-width: 768px) {
-        .navbar{
+        .navbar {
             display: none;
         }
-        .topnavbar{
+
+        .topnavbar {
             display: flex;
             flex-wrap: nowrap;
             position: sticky;
-            justify-content: flex-start; 
-            align-items: center; 
-            background-color: #fff; 
-            color: #000; 
-            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .mobile_logo{
-            width:128px;
-            height:35px;
-            display:block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .center{
-            display:block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .gap_top {
-            margin-top: 1px;
+        .mobile-logo {
+            width: 128px;
+            height: 35px;
+            display: block;
+            margin: 0 auto;
         }
 
-        .flexend {
-            justify-content: flex-end;
-        }
-
-        .flexstart{
-            justify-content: flex-start;
-        }
         .sidebar {
             display: none;
             background-color: #fff;
@@ -131,97 +110,50 @@
             color: #000;
             border-bottom: 1px solid #bbb;
         }
-    
+
         .sidebar a:hover {
             background-color: #E50914;
             color: #f2f2f2;
         }
-    
+
         .active {
             display: block;
         }
-
     }
-      
-</style>    
+</style>
 
 <nav class="navbar">
     <a href="" class="logo">
-        <img style="width: 192px; height: 53px; padding-left: 15px;" class="logo1" src="{% static 'images/Duloft-logo.png' %}" alt="DuLoft">
+        <img class="logo1" src="{% static 'images/Duloft-logo.png' %}" alt="DuLoft">
     </a>
 
     <div class="navbar-links">
         <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
         <a href="{% url 'pricing' %}"><span class="title">Pricing</span></a>
         <a href="{% url 'join_waitlist' %}"><span class="title">Join Us!</span></a>
-        <a href=""><span class="title"> </span></a>
-        <a href=""><span class="title"> </span></a>
-
-        {% comment %} {% if request.user.is_authenticated %}
-
-        <a href="{% url 'user_details' %}"> 
-            <span class="dn-lg">
-                {% comment %} <img class="rounded-circle" src="{{request.user.landLord.profile_photo.url}}" alt="e1.png"> {% endcomment %}
-                {% comment %} <span class="dn-1199">Hi, {{request.user.first_name}}</span>
-            </span>
-        </a>
-
-        <a href="{% url 'add_property' %}" class="btn btn-thm3" style="padding: 10 18px;">
-            <span class="flaticon-plus"></span><span class="dn-lg"> Add Property</span>
-        </a>
-
-        {% else %}
-
-            <li class="list-inline-item list_s"><a href="app.duloft.com/login" class="flaticon-user"> <span class="dn-lg">Login/Register</span></a></li>
-                
-        {% endif %} {% endcomment %}
-
     </div>
 </nav>
 
+<!-- Mobile Navbar -->
 
-
-<!--Mobile Navbar-->
-
-
-<div class="col">
-    <div class="row topnavbar">
-        <div class="col-2">
-            <span onclick="toggleNavbar()" style="background-color: transparent; border: none; color: #000; font-size: 20px; cursor: pointer;">&#9776;</span>
-        </div>
-        <div class="col-8">
-            <img class='mobile_logo'  src="{% static 'images/Duloft-logo.png' %}" alt="duloft" >
-        </div>
-        {% comment %} <div class="col-2">
-            {% if request.user.is_authenticated%}
-                <a href="">
-                    <i class="fa fa-user center" aria-hidden="true"></i>
-                </a>
-            {% else %}
-                <a href="" style="display:flex; flex:right;">
-                    <i class="fa fa-user center" aria-hidden="true"></i>
-                </a>
-            {% endif %}
-        </div>  {% endcomment %}
-    </div>
-    <div class="row sidebar" id="sidebar">
-        <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
-        <a href="{% url 'pricing' %}"><span class="title">Pricing</span></a>
-        <a href="{% url 'join_waitlist' %}"><span class="title">Join Us!</span></a>
-        {% comment %} <a href="app.duloft.com"><span class="title">Get Started!</span></a> {% endcomment %}
-
-    </div>
+<div class="topnavbar">
+    <span onclick="toggleNavbar()" style="background-color: transparent; border: none; color: #000; font-size: 20px; cursor: pointer;">&#9776;</span>
+    <img class="mobile-logo" src="{% static 'images/Duloft-logo.png' %}" alt="duloft">
 </div>
 
+<div class="sidebar" id="sidebar">
+    <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
+    <a href="{% url 'pricing' %}"><span class="title">Pricing</span></a>
+    <a href="{% url 'join_waitlist' %}"><span class="title">Join Us!</span></a>
+</div>
 
 <script>
     function toggleNavbar() {
         var sidebar = document.getElementById("sidebar");
-        if (sidebar.className === "sidebar") {
-          sidebar.className += " active";
+        if (sidebar.style.display === "block") {
+            sidebar.style.display = "none";
         } else {
-          sidebar.className = "sidebar";
+            sidebar.style.display = "block";
         }
     }
-</script> 
-
+</script>
