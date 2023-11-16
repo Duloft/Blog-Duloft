@@ -15974,6 +15974,9 @@ button.mfp-close {
     transform: scale(1.05)
 }
 
+.col-side-image {
+    padding: 3rem !important
+}
 
 .side-image {
     width:100%; 
