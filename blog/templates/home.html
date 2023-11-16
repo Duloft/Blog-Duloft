@@ -2,59 +2,106 @@
 {% block title %}Home{% endblock %}
 {% block start %}
 {% load static %}
-{% comment %} <img src="{% static "images/hi.jpg" %}" alt="Hi!"> {% endcomment %}
 <section class="position-relative py-6">
-    <img class="bg-image" src="https://wallup.net/wp-content/uploads/2019/10/40140-tokyo-japan-architecture-buildings-cities-748x421.jpg" 
-      alt="">
+    <img class="bg-image" src='{% static "images/japan1.jpg" %}' alt="">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="bg-white rounded-lg shadow p-5">
-            <strong class="text-uppercase text-secondary d-inline-block mb-2 text-sm">Bringing Comfort Close</strong>
-            <h2 class="mb-3">The Right Way To Rent</h2>
-            <p style="font-size: 18px;" class="text-muted">
-              Finding a place to call home or listing a property for rent or sale is a universal challenge. 
-            </p>
-            <p style="font-size: 18px;" class="text-muted">
-              Our vision is to create a trusted community, a go-to hub for both property owners and those searching for a place to live, 
-              ensuring that the process is convenient, transparent, and stress-free for all parties. 
-            </p>
-            {% comment %} <a class="btn btn-link p-0" href="">Continue reading <i class="fa fa-long-arrow-alt-right"></i></a> {% endcomment %}
-            <a class="btn btn-link " href="{% url 'join_waitlist' %}">Join Us Now! <i class="fa fa-plus"></i></a>
-            {% comment %} <a class="btn btn-link " href="www.app.duloft.com">Get Started!</i></a> {% endcomment %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="py-6">
-    <div class="container">
-      <div class="row mb-5">
-        <!-- blog item-->
-         {% for blog in blogs %}
-        <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-          <div class="card shadow border-0 h-100">
-            <a href="{% url 'blog_detail' blog.slug %}">
-              <img class="img-fluid card-img-top" src={{blog.image.url}} alt="duloft img"/></a>
-            <div class="card-body">
-              <h6 class="my-2"><a class="text-dark" href="{% url 'blog_detail' blog.slug %}">
-              {{blog.title}}</a></h6>
-              <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>
-                {{blog.created_at}}</p>
-              <p class="my-2 text-muted text-sm">
-                {{blog.content|safe | truncatewords_html:50}}<!-- Similar to truncatewords, except that it is aware of HTML tags. 
-                  Any tags that are opened in the string and not closed before the truncation point, are closed immediately after the truncation.
-                  This is less efficient than truncatewords, so should only be used when it is being passed HTML text. -->
-              </p>
-              <a class="btn btn-link pl-0"href="{% url 'blog_detail' blog.slug %}">Read more<i class="fa fa-long-arrow-alt-right ml-2"></i></a> 
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="bg-white rounded-lg shadow p-5">
+                    <strong class="text-uppercase text-secondary d-inline-block mb-2 text-sm">Bringing Comfort Close</strong>
+                    <h2 class="mb-3">The Right Way To Rent</h2>
+                    <p class="text-muted">
+                        Finding a place to call home or listing a property for rent or sale is a universal challenge.
+                    </p>
+                    <p class="text-muted">
+                        Our vision is to create a trusted community, a go-to hub for both property owners and those searching for a
+                        place to live, ensuring that the process is convenient, transparent, and stress-free for all parties.
+                    </p>
+                    <a class="btn btn-link" href="{% url 'join_waitlist' %}">Get Early Access!<i class="fa fa-plus"></i></a>
+                </div>
             </div>
-          </div>
         </div>
-        {% endfor %} 
-      </div>
     </div>
-  </section> 
-  <!-- Footer-->
+</section>
 
+<section class="position-relative pad-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bg-white rounded-lg shadow p-5">
+                    <div class="vessel">
+                        <div class="col">
+                            <h3 class="mb-3">About Us</h3>
+                            <p class="text-muted">
+                                We aim to streamline the rental process, facilitating landlords in efficiently managing their
+                                properties while helping tenants discover their perfect homes with ease.
+                            </p>
+                        </div>
+                        <div class="col">
+                            <img class="side-image" src='{% static "images/singapore1.jpg" %}' alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-  {% endblock %}
+<section class="position-relative pad-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bg-white rounded-lg shadow p-5">
+                    <div class="vessel">
+                        <div class="col">
+                            <img class="side-image" src='{% static "images/whyChooseUs.png" %}' alt="">
+                        </div>
+                        <div class="col">
+                          <h3 class="mb-3">Why Choose Us</h3>
+                          <p class="text-muted">
+                            <b>Transparency and Trust:</b>
+                            We are committed to providing our clients with complete transparency, fostering trust between landlords, tenants, and DuLoft.
+                            <br><b>Streamlined Processes:</b>
+                            We are committed to simplifying and automating the rental process, making it easy for landlords and tenants alike.
+                            <br><b>Cost-Effective Solutions:</b>
+                            We are committed to delivering cost-effective solutions that maximize returns for landlords and provide value for tenants.
+                            <br><b>Data Security:</b>
+                            We are committed to ensuring the highest standards of data security to protect the interests of both landlords and tenants.
+                          </p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-6">
+    <div class="container">
+        <div class="row mb-5">
+            <!-- blog item-->
+            {% for blog in blogs %}
+            <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
+                <div class="card shadow border-0 h-100">
+                    <a href="{% url 'blog_detail' blog.slug %}">
+                        <img class="img-fluid card-img-top" src={{blog.image.url}} alt="duloft img"/>
+                    </a>
+                    <div class="card-body">
+                        <h6 class="my-2"><a class="text-dark" href="{% url 'blog_detail' blog.slug %}">
+                            {{blog.title}}</a></h6>
+                        <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>
+                            {{blog.created_at}}</p>
+                        <p class="my-2 text-muted text-sm">
+                            {{blog.content|safe | truncatewords_html:50}}
+                        </p>
+                        <a class="btn btn-link pl-0" href="{% url 'blog_detail' blog.slug %}">Read more<i
+                                class="fa fa-long-arrow-alt-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+{% endblock %}

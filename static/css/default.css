@@ -572,6 +572,19 @@ pre code {
     overflow-y: scroll
 }
 
+.vessel {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .vessel {
+        flex-direction: column;
+    }
+}
+
+
+
 .container,
 .container-fluid,
 .container-sm,
@@ -584,6 +597,7 @@ pre code {
     margin-right: auto;
     margin-left: auto
 }
+
 
 @media (min-width: 576px) {
 
@@ -9314,6 +9328,9 @@ button.bg-dark:focus {
     padding-top: 6rem !important
 }
 
+.pad-top {
+    padding-top: 3rem !important;
+}
 .pr-6,
 .px-6 {
     padding-right: 6rem !important
@@ -15955,6 +15972,14 @@ button.mfp-close {
 .hover-scale-bg-image:focus .bg-image {
     -webkit-transform: scale(1.05);
     transform: scale(1.05)
+}
+
+
+.side-image {
+    width:100%; 
+    height:auto; 
+    border: 2px solid #fff; 
+    border-radius: 10px; 
 }
 
 .tile-link {
