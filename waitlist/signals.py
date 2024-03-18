@@ -1,8 +1,10 @@
+import smtplib
+import ssl
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import Waitlist
-from django.core.mail import EmailMessage
-
+from email.message import EmailMessage as EMail
+from decouple import config
 
 
 
@@ -28,13 +30,33 @@ def list_saved(sender, instance, created, **kwargs):
 
 
 def sendmailPdf(subject: str, message: str, receiver: list):
+    print("sending....")
+    
     sender = 'info@duloft.com'
-    email = EmailMessage(
-        subject,
-        message,
-        sender,
-        receiver,
-    )
-    # Send the email
-    email.send()
+    password = config('ZOHO_MAIL_SECRET_KEY')
+    msg = EMail()
+    msg.set_content(message)
+    msg['subject'] = subject
+    msg['to'] = receiver
+    msg['from'] = sender
+    
+    context = ssl.create_default_context()
+    # Connect to the SMTP server using TLS
+    server = smtplib.SMTP("smtppro.zoho.com", 587)
+    print('starting TLS...')
+    server.starttls(context=context)  # Start TLS encryption
+    server.login(sender, password)
+    server.send_message(msg)
+    
+    server.quit()
+    
+    # sender = 'info@duloft.com'
+    # email = EmailMessage(
+    #     subject,
+    #     message,
+    #     sender,
+    #     receiver,
+    # )
+    # # Send the email
+    # email.send(fail_silently=False)
     print('mail sent')
