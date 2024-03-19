@@ -2,6 +2,7 @@
 
 {% extends 'base.html' %}
 {% block title %}Join Us{% endblock %}
+{% load honeypot %}
 
 {% block start %}
     <div class="container" style="background-color: #F9F9F9;">
@@ -24,7 +25,7 @@
                         <form method="post">
                             {% csrf_token %}
                             {{form.as_p}}
-
+                            {% render_honeypot_field %}
                             <button type="submit" class="btn btn-secondary">Join Now!</button>
                         </form>
                     

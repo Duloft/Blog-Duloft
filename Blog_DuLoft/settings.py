@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'froala_editor',
     'django_recaptcha',
+    'honeypot',
     
     'fontawesome_5',
     
@@ -219,6 +220,7 @@ TWILIO_PHONE_NUMBER = '+14155238886'
 RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_PRIVATE_KEY')
 
+HONEYPOT_FIELD_NAME = "pot"
 
 LOGGING = {
     'version': 1,
