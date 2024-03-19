@@ -16,6 +16,7 @@ django-fontawesome-5==1.0.18
 django-froala-editor==4.0.16
 django-js-asset==2.1.0
 django-recaptcha
+django-honeypot
 frozenlist==1.4.0
 gunicorn==21.2.0
 idna==3.4
