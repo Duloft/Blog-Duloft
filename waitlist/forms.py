@@ -1,5 +1,6 @@
 from django import forms
 from .models import Waitlist
+from django_recaptcha.fields import ReCaptchaField
 
 
 class WaitListForm(forms.ModelForm):
@@ -8,6 +9,8 @@ class WaitListForm(forms.ModelForm):
     
     manage_my_property = forms.BooleanField(label="I want DuLoft to manage my property", required=False, 
                                     widget=forms.CheckboxInput(attrs={'class':'form-control-check-input'}))
+    
+    captcha = ReCaptchaField()
     class Meta:
         model = Waitlist
         fields = "__all__"

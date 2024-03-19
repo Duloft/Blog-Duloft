@@ -1,8 +1,10 @@
 # waitlist/views.py
 from django.shortcuts import render, redirect
 # from .models import Waitlist
+# from ratelimit.decorators import ratelimit
 from .forms import WaitListForm
 
+# @ratelimit(key='ip', rate='3/m')
 def join_waitlist(request):
     form = WaitListForm()    
     if request.method == 'POST':

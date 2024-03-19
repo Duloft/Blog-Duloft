@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'corsheaders',
     'froala_editor',
+    'django_recaptcha',
     
     'fontawesome_5',
     
@@ -213,6 +214,10 @@ MESSAGE_TAGS = {
 TWILIO_ACCOUNT_SID = 'AC2475f0593a1fdf0f82c368182a5564ad'
 TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN')
 TWILIO_PHONE_NUMBER = '+14155238886'
+
+# Google Recaptcha 
+RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_PRIVATE_KEY')
 
 
 LOGGING = {
