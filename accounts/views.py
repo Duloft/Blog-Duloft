@@ -6,8 +6,7 @@ from django.urls import reverse
 from django.conf import settings
 
 def login(request):
-    next_url = request.GET.get('next')
-    sso_login_url = f"{settings.SSO['ROOT']}/user/login/?next={redirect(next_url)}"
+    sso_login_url = f"{settings.SSO['ROOT']}/user/login/?next={reverse('blog_post')}"
     return redirect(sso_login_url)
 
 
