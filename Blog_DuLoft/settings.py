@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'froala_editor',
     'django_recaptcha',
     'honeypot',
+    'simple_sso',
     
     'fontawesome_5',
     
@@ -120,6 +121,10 @@ DATABASES = {
 
 
 AUTH_USER_MODEL = 'accounts.User'
+
+SSO_PRIVATE_KEY = config('SSO_PRIVATE_KEY')
+SSO_PUBLIC_KEY = config('SSO_PUBLIC_KEY')
+SSO_SERVER = 'https://app.duloft.com'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
