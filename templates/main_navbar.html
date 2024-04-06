@@ -129,8 +129,15 @@
 
     <div class="navbar-links">
         <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
-        <a href="https://app.duloft.com/user/subscription-plan"><span class="title">Pricing</span></a>
-        <a href="{% url 'simple-sso-login' %}"><span class="title">LogIn</span></a>
+        <a href="https://app.duloft.com/user/subscription-plan" target=”_blank”><span class="title">Pricing</span></a>
+        
+        {% if request.user.is_authenticated %}
+            <span class="dn-1199">Hi, {{request.user.first_name}}</span>
+        {% else %}
+            <a href="{% url 'login' %}"><span class="title">LogIn</span></a>
+        {% endif %}
+            
+        
     </div>
 </nav>
 
@@ -143,8 +150,12 @@
 
 <div class="sidebar" id="sidebar">
     <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
-    <a href="https://app.duloft.com/user/subscription-plan"><span class="title">Pricing</span></a>
-    <a href="https://app.duloft.com/user/login"><span class="title">Sign In</span></a>
+    <a href="https://app.duloft.com/user/subscription-plan" target=”_blank”><span class="title">Pricing</span></a>
+    {% if request.user.is_authenticated %}
+            <span class="dn-1199">Hi, {{request.user.first_name}}</span>
+        {% else %}
+            <a href="{% url 'login' %}"><span class="title">LogIn</span></a>
+        {% endif %}
 </div>
 
 <script>

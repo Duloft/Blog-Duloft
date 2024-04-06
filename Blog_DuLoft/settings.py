@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'froala_editor',
     'django_recaptcha',
     'honeypot',
-    'simple_sso',
+    'django_sso.sso_service',
     
     'fontawesome_5',
     
@@ -122,9 +122,6 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'accounts.User'
 
-SSO_PRIVATE_KEY = config('SSO_PRIVATE_KEY')
-SSO_PUBLIC_KEY = config('SSO_PUBLIC_KEY')
-SSO_SERVER = 'https://app.duloft.com'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -183,6 +180,19 @@ STORAGES = {
     },
 }
 
+# Django variable. URL for unlogged users. We redirect it to our view.
+LOGIN_URL = '/user/login/'
+
+SSO = {
+    # Specify SSO server base url (REQUIRED)
+    'ROOT': 'https://app.duloft.com',
+    
+	# Specify application token obtained in the SSO server admin panel (REQUIRED)
+	'TOKEN': '9jkJIXe39SRlWEZKwTVO471CBL2e0jVuoPVytesyWDnqBAZf5eIfRMS4YnoWQXpKI8pDaSXSOYY6YDTEkQyRS2dofeY8FPA3AprKxH8Y6xMqjWf9VlvNl8ib8tq9GY8X',
+    # Overriding event acceptor class (OPTIONAL). For more details read
+    # "Overriding event acceptor in subordinated service" partition
+    # 'EVENT_ACCEPTOR_CLASS': 'project.my_overrides.MySSOEventAcceptor'
+}
 
 
 # Media files (Uploaded Images, Docs, Video)
