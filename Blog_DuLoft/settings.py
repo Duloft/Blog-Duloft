@@ -188,7 +188,7 @@ SSO = {
     'ROOT': 'https://app.duloft.com',
     
 	# Specify application token obtained in the SSO server admin panel (REQUIRED)
-	'TOKEN': '9jkJIXe39SRlWEZKwTVO471CBL2e0jVuoPVytesyWDnqBAZf5eIfRMS4YnoWQXpKI8pDaSXSOYY6YDTEkQyRS2dofeY8FPA3AprKxH8Y6xMqjWf9VlvNl8ib8tq9GY8X',
+	'TOKEN': config('SOS_TOKEN'),
     # Overriding event acceptor class (OPTIONAL). For more details read
     # "Overriding event acceptor in subordinated service" partition
     # 'EVENT_ACCEPTOR_CLASS': 'project.my_overrides.MySSOEventAcceptor'
