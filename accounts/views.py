@@ -1,12 +1,13 @@
-from django.shortcuts import render
 
 # Create your views here.
 
 from django.shortcuts import redirect
+from django.urls import reverse
 from django.conf import settings
 
 def login(request):
-    sso_login_url = f"{settings.SSO['ROOT']}/user/login/?next={request.build_absolute_uri('/')}"
+    next_url = request.GET.get('next')
+    sso_login_url = f"{settings.SSO['ROOT']}/user/login/?next={redirect(next_url)}"
     return redirect(sso_login_url)
 
 
