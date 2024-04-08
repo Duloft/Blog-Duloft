@@ -180,8 +180,6 @@ STORAGES = {
     },
 }
 
-# Django variable. URL for unlogged users. We redirect it to our view.
-LOGIN_URL = '/user/login/'
 
 SSO = {
     # Specify SSO server base url (REQUIRED)

@@ -56,7 +56,7 @@ def blog_post(request):
 
 #     return render(request, 'update_blog.html', context)
 
-@login_required
+
 def blog_detail(request, slug):
     context = {}
     template_name = 'blog_detail.html'
