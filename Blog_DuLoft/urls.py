@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 admin.site.site_header = "DuLoft DashBoard"
 
 urlpatterns = [
-    path('sso/', include('django_sso.sso_service.urls')),
     path('back-in/', admin.site.urls),
     path('', include('blog.urls')),
     path('join-us/', include('waitlist.urls')),
@@ -35,8 +34,3 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-
-    
-    
-    

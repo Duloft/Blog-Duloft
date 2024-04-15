@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'froala_editor',
     'django_recaptcha',
     'honeypot',
-    'django_sso.sso_service',
     
     'fontawesome_5',
     
@@ -178,18 +177,6 @@ STORAGES = {
         "BACKEND": 'whitenoise.storage.CompressedStaticFilesStorage',
 # 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
-}
-
-
-SSO = {
-    # Specify SSO server base url (REQUIRED)
-    'ROOT': 'https://app.duloft.com',
-    
-	# Specify application token obtained in the SSO server admin panel (REQUIRED)
-	'TOKEN': config('SOS_TOKEN'),
-    # Overriding event acceptor class (OPTIONAL). For more details read
-    # "Overriding event acceptor in subordinated service" partition
-    # 'EVENT_ACCEPTOR_CLASS': 'project.my_overrides.MySSOEventAcceptor'
 }
 
 
