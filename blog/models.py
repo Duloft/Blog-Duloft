@@ -10,7 +10,7 @@ from .utils import generate_slug
 
 
 class PostModel(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=150)
     slug = models.SlugField(max_length=150, unique=True, blank=True)
     content = FroalaField(theme='dark')
     image = models.ImageField(upload_to='blogPost/')
