@@ -574,7 +574,22 @@ pre code {
 
 .vessel {
     display: flex;
-    flex-wrap: wrap;
+    padding: 1.7rem;
+}
+
+.vessel div {
+    margin-bottom: 15px; /* Adjust spacing between sections */
+}
+.vessel strong {
+    display: inline-block;
+    margin-left: 10px; /* Spacing between icon and text */
+}
+.vessel i {
+    color: green; /* Optional: Change color of the check icon */
+}
+.vessel p {
+    margin-left: 25px; /* Add padding to the paragraphs */
+    margin-top: 5px; /* Optional: Adjust margin for better spacing */
 }
 
 @media (max-width: 768px) {
@@ -583,7 +598,45 @@ pre code {
     }
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.step-links {
+    display: flex;
+    gap: 10px;
+}
+.step-links a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #1d1d1d;
+}
+.step-links a:hover {
+    background-color: #f0f0f0;
+}
+.current {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
 
+.banner {
+    background-color: #f8f9fa;
+    padding: 1rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
 
 .container,
 .container-fluid,
@@ -15975,14 +16028,20 @@ button.mfp-close {
 }
 
 .col-side-image {
-    padding: 1.5rem !important
+    padding: 1.5rem !important;
+    /* height: 60vh; */
 }
 
 .side-image {
     width:100%; 
-    height:auto; 
+    height: auto; 
     border: 2px solid #fff; 
     border-radius: 10px; 
+}
+
+.side {
+    
+    padding: 1.7rem;
 }
 
 .tile-link {

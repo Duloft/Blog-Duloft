@@ -222,6 +222,8 @@ RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_PRIVATE_KEY')
 
 HONEYPOT_FIELD_NAME = "pot"
 
+
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

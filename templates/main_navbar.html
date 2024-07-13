@@ -128,16 +128,11 @@
     </a>
 
     <div class="navbar-links">
-        <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
+        <a href="{% url 'home' %}"><span class="title">Home</span></a>
+        <a href="{% url 'blog_post' %}"><span class="title">Blog</span></a>
+        <a href="{% url 'features' %}"><span class="title">Features</span></a>
         <a href="https://app.duloft.com/user/subscription-plan" target=”_blank”><span class="title">Pricing</span></a>
-        
-        {% if request.user.is_authenticated %}
-            <span class="dn-1199">Hi, {{request.user.first_name}}</span>
-        {% else %}
-            <a href="https://app.duloft.com/user/login" target="_blank"><span class="title">App LogIn</span></a>
-        {% endif %}
-            
-        
+        <a href="https://app.duloft.com/user/login" target="_blank"><span class="title">Visit App</span></a>
     </div>
 </nav>
 
@@ -149,13 +144,12 @@
 </div>
 
 <div class="sidebar" id="sidebar">
-    <a href="{% url 'blog_post' %}"><span class="title">Home</span></a>
+    <a href="{% url 'home' %}"><span class="title">Home</span></a>
+    <a href="{% url 'blog_post' %}"><span class="title">Blog</span></a>
+    <a href="{% url 'features' %}"><span class="title">Features</span></a>
     <a href="https://app.duloft.com/user/subscription-plan" target=”_blank”><span class="title">Pricing</span></a>
-    {% if request.user.is_authenticated %}
-            <span class="dn-1199">Hi, {{request.user.first_name}}</span>
-        {% else %}
-            <a href="https://app.duloft.com/user/login" target="_blank"><span class="title">App LogIn</span></a>
-        {% endif %}
+    <a href="https://app.duloft.com/user/login" target="_blank"><span class="title">Visit App</span></a>
+        
 </div>
 
 <script>

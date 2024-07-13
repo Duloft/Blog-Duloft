@@ -1,14 +1,32 @@
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 
 from .models import PostModel
+from .utils import check_auth_status
 
 # Create your views here.
 
+def home(request):
+    access_token = request.COOKIES.get('access_token')
+    refresh_token = request.COOKIES.get('refresh_token')
+    status, res =  check_auth_status(access_token)
+    print(res, 'response')
+    if status:
+        request.user = res.get('first_name')
+    return render(request, 'home.html', )
+
+def features(request):
+    return render(request, 'features.html', )
+
 def blog_post(request):
     blogs = PostModel.objects.all().order_by('-created_at')
-    context = {'blogs': blogs}
-    return render(request, 'home.html', context)
+    paginator = Paginator(blogs, 6)  # Show 6 objects per page.
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number) # This is holding both the object and the paginator
+    context = {'page_obj': page_obj}
+    return render(request, 'blog.html', context)
 
 # @login_required
 # def add_blog(request):
